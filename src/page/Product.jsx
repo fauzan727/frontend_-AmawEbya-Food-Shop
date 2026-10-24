@@ -173,7 +173,7 @@ function Product() {
           
         )}
         
-      </div> {/* Akhir Kotak Merah Besar */}
+      </div> 
     </section>
   );
 }
