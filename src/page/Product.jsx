@@ -4,18 +4,20 @@ import Button from "../components/Button";
 import useFetch from "../hooks/useFetch";
 
 const getProductImage = (category_id, fallbackUrl) => {
-  if (fallbackUrl && fallbackUrl.startsWith('http')) {
-    return fallbackUrl;
+  if (fallbackUrl) {
+    if (fallbackUrl.startsWith('http')) {
+      return fallbackUrl;
+    }
+    return `http://localhost:5000/uploads/${fallbackUrl}`; 
   }
+
   switch (Number(category_id)) {
-    case 1: return "https://unsplash.com";
-    case 2: return "https://unsplash.com";
-    case 3: return "https://unsplash.com";
-    case 4: return "https://unsplash.com";
-    case 5: return "https://unsplash.com";
-    default: return "https://unsplash.com";
+    case 1: return "https://unsplash.com"; 
+    case 2: return "https://unsplash.com"; 
+    default: return "https://placehold.co";
   }
 };
+
 
 function Product() {
   const { get } = useFetch();
